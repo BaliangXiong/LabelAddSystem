@@ -17,14 +17,14 @@ module.exports = {
     https: false,
 
     hotOnly: false,
-    proxy: {
-      '': {
-       target: 'http://localhost:9090/pq',
-        changeOrigin: true,
-        ws: true,
-        pathRewrite: {}
-      }
-    },
+    // proxy: {
+    //   '': {
+    //    target: 'http://localhost:9090/pq',
+    //     changeOrigin: true,
+    //     ws: true,
+    //     pathRewrite: {}
+    //   }
+    // },
 
     before: app => {
     }
