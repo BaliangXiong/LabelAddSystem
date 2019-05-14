@@ -49,24 +49,22 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           let _this = this;
-          // let serverUrl = '/api/'  //本地调试时
-          // this.$axios.post("checkLogin",{
-          //   username:_this.loginForm.username,
-			// 			password:_this.loginForm.password
-          // })
-			// 			.then(response =>{
-			// 			  if(response.data.length){
-			// 					_this.$store.commit('SAVE_USERINFO',response.data[0])
-          //       _this.$Message.success('恭喜你，登陆成功!')
-          //
-          //       //跳转到首页
-			// 					_this.$router.push('/')
-			// 				} else {
-          //       this.$Message.error('登录失败，请确认用户名密码！');
-			// 				}
-			// 			})
-          _this.$store.commit('SAVE_USERINFO','yonghu')
-          _this.$router.push('/');
+          let serverUrl = '/api/'  //本地调试时
+          this.$axios.post("checkLogin",{
+            username:_this.loginForm.username,
+						password:_this.loginForm.password
+          })
+						.then(response =>{
+						  if(response.data.length){
+								_this.$store.commit('SAVE_USERINFO',response.data[0])
+                _this.$Message.success('恭喜你，登陆成功!')
+
+                //跳转到首页
+								_this.$router.push('/')
+							} else {
+                this.$Message.error('登录失败，请确认用户名密码！');
+							}
+						})
         } else {
           console.log('error submit!!');
           return false;
