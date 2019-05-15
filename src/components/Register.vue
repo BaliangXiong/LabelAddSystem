@@ -3,7 +3,7 @@
 		<!--登录表单-->
 		<Form :model="registerForm" status-icon :rules="rules2" ref="registerForm" :label-width="100" class="demo-ruleForm">
 			<router-link :to="{name:'Login'}" class="nav-link">登录</router-link>
-			<h1 class="login_title">唐宋文人数据可视化系统</h1>
+			<h1 class="login_title">唐宋诗词标签系统</h1>
 			<FormItem label="用户名" prop="username">
 				<Input v-model="registerForm.username"></Input>
 			</FormItem>
