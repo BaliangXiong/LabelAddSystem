@@ -3,11 +3,29 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-//状态
-const state={
-  userInfo:JSON.parse(sessionStorage.getItem('userInfo'))
 
-}
+export default new Vuex.Store({
+  state: {
+    userInfo:JSON.parse(sessionStorage.getItem('userInfo'))
+  },
+  getters:{
+
+  },
+  mutations: {
+    SAVE_USERINFO(state,userInfo){
+
+      //把用户信息存入本地存储
+      sessionStorage.setItem('userInfo',JSON.stringify(userInfo))
+      state.userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
+
+    },
+  },
+  actions: {
+
+  }
+})
+
+
 
 //mutations  操作state
 const mutations = {
@@ -18,13 +36,4 @@ const mutations = {
     state.userInfo = JSON.parse(sessionStorage.getItem('userInfo'))
 
   },
-
-
 }
-
-const store = new Vuex.Store({
-  state,
-  mutations
-});
-
-export default store
