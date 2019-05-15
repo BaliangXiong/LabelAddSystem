@@ -39,7 +39,7 @@ export default {
         ],
         password: [
           { required: true, message: '请输入密码', trigger: 'blur' },
-          { min: 5, max: 18, message: '长度在 5 到 18 个字符', trigger: 'blur' }
+          { min: 3, max: 18, message: '长度在 3 到 18 个字符', trigger: 'blur' }
         ],
       }
     };
@@ -49,15 +49,15 @@ export default {
       this.$refs[formName].validate((valid) => {
         if (valid) {
           let _this = this;
-          let serverUrl = '/api/'  //本地调试时
-          this.$axios.post("checkLogin",{
-            username:_this.loginForm.username,
-						password:_this.loginForm.password
-          })
+          let param = new URLSearchParams();
+          param.append('username', _this.loginForm.username);
+          param.append('password', _this.loginForm.password);
+          this.$axios.post("checkLogin",param)
 						.then(response =>{
+						  console.log(response.data);
 						  if(response.data.length){
 								_this.$store.commit('SAVE_USERINFO',response.data[0])
-                _this.$Message.success('恭喜你，登陆成功!')
+                _this.$Message.success('恭喜你，登陆成功!');
 
                 //跳转到首页
 								_this.$router.push('/')

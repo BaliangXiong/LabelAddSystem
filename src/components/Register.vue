@@ -59,10 +59,14 @@
             { min: 3, max: 18, message: '长度在 3 到 18 个字符', trigger: 'blur' }
           ],
           password: [
-            { validator: validatePass, trigger: 'blur' }
+            { validator: validatePass, trigger: 'blur' },
+            { required: true, message: '请输入密码', trigger: 'blur' },
+            { min: 3, max: 18, message: '长度在 3 到 18 个字符', trigger: 'blur' }
           ],
           checkPass: [
-            { validator: validatePass2, trigger: 'blur' }
+            { validator: validatePass2, trigger: 'blur' },
+            { required: true, message: '请再次输入密码', trigger: 'blur' },
+            { min: 3, max: 18, message: '长度在 3 到 18 个字符', trigger: 'blur' }
           ]
         }
       };
@@ -72,19 +76,21 @@
         this.$refs[formName].validate((valid) => {
           if (valid) {
             let _this = this;
-            this.$axios.post("/apis/register",{
-              username:_this.registerForm.username,
-              password:_this.registerForm.password
-            })
+
+            let param = new URLSearchParams();
+            param.append('username', _this.registerForm.username);
+            param.append('password', _this.registerForm.password);
+            this.$axios.post("register",param)
               .then(response =>{
-                if(response.data.length){
+                console.log(response.data);
+                if(response.data === "success"){
                   _this.$store.commit('SAVE_USERINFO',response.data[0])
                   _this.$Message.success('恭喜你，注册成功!')
 
                   //跳转到首页
                   _this.$router.push('/')
-                } else {
-                  this.$Message.error('登录失败，请确认用户名密码！');
+                } else if(response.data === "exist") {
+                  this.$Message.error('该用户名已存在！');
                 }
               })
           } else {
