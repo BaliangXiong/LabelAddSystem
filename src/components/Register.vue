@@ -82,7 +82,6 @@
             param.append('password', _this.registerForm.password);
             this.$axios.post("register",param)
               .then(response =>{
-                console.log(response.data);
                 if(response.data === "success"){
                   _this.$store.commit('SAVE_USERINFO',response.data[0])
                   _this.$Message.success('恭喜你，注册成功!')

@@ -54,11 +54,9 @@ export default {
           param.append('password', _this.loginForm.password);
           this.$axios.post("checkLogin",param)
 						.then(response =>{
-						  console.log(response.data);
 						  if(response.data.length){
 								_this.$store.commit('SAVE_USERINFO',response.data[0])
                 _this.$Message.success('恭喜你，登陆成功!');
-
                 //跳转到首页
 								_this.$router.push('/')
 							} else {
