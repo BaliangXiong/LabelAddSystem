@@ -25,6 +25,7 @@ axios.defaults.baseURL = 'http://47.92.251.238:9090//labeladd';
 //   }
 //
 // })
+//test 05162109
 
 /* eslint-disable no-new */
 new Vue({
