@@ -25,7 +25,11 @@ router.beforeEach((to,from,next) =>{
   }
 
 })
-//test 05162109
+// 我删掉它了哦
+// 我删掉它了哦
+// 我删掉它了哦
+// 我删掉它了哦
+//
 
 /* eslint-disable no-new */
 new Vue({
