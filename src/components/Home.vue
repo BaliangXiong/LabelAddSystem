@@ -1,3 +1,18 @@
+<template>
+  <div class="home">
+  </div>
+</template>
+
+<script>
+
+  export default {
+    methods:{
+
+    }
+  }
+</script>
+
+
 <style scoped>
 	.home{
 		border: 1px solid #d7dde4;
@@ -10,16 +25,5 @@
 
 
 </style>
-<template>
-	<div class="home">
-	</div>
-</template>
-<script>
 
-  export default {
 
-		methods:{
-
-		}
-  }
-</script>
