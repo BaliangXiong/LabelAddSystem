@@ -28,7 +28,7 @@ export default new Router({
         {
           path: '/PoemList',
           name: 'PoemList',
-          component: PoetList
+          component: PoemList
         },
         {
           path: '/UserInfo',

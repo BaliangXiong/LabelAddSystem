@@ -7,13 +7,12 @@ import store from './store'
 import axios from 'axios'
 import iView from 'iview'
 import 'iview/dist/styles/iview.css'
-import $ from 'jquery'
 
 Vue.config.productionTip = false
 Vue.use(iView)
 Vue.prototype.$axios = axios;
-axios.defaults.baseURL = 'http://47.92.251.238:9090//labeladd';
-//axios.defaults.baseURL = 'http://localhost:9090//pq';
+// axios.defaults.baseURL = 'http://47.92.251.238:9090//labeladd';
+axios.defaults.baseURL = 'http://localhost:9090//pq';
 /*暂时先注释 方便书写*/
 /*router.beforeEach((to,from,next) =>{
   if(sessionStorage.getItem('userInfo')){
@@ -27,11 +26,7 @@ axios.defaults.baseURL = 'http://47.92.251.238:9090//labeladd';
   }
 
 })*/
-// 我删掉它了哦
-// 我删掉它了哦
-// 我删掉它了哦
-// 我删掉它了哦
-//
+
 
 /* eslint-disable no-new */
 new Vue({

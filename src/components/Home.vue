@@ -4,10 +4,10 @@
     <!--左侧页面切换按钮-->
     <div class="left-container">
       <ul class="navbar-nav ml-auto">  <!--左侧主页信息展示-->
-        <li  @click="setClass()" class="active"><router-link to="UserInfo" class="nav-link" >个人</router-link></li>
-        <li  @click="setClass()"><router-link to="QueryPage" class="nav-link" >查询</router-link></li>
-        <li  @click="setClass()"><router-link to="PoemList" class="nav-link" >诗词</router-link></li>
-        <li  @click="setClass()"><router-link to="CheckPage" class="nav-link" >审核</router-link></li>
+        <li  @click="selectedindex = 1" :class="{'active': selectedindex === 1}"><router-link to="UserInfo" class="nav-link" >用户信息</router-link></li>
+        <li  @click="selectedindex = 2" :class="{'active': selectedindex === 2}"><router-link to="QueryPage" class="nav-link" >查询诗词</router-link></li>
+        <li  @click="selectedindex = 3" :class="{'active': selectedindex === 3}"><router-link to="PoemList" class="nav-link" >诗词列表</router-link></li>
+        <li  @click="selectedindex = 4" :class="{'active': selectedindex === 4}"><router-link to="CheckPage" class="nav-link" >审核界面</router-link></li>
       </ul>
     </div>
     <!--中间诗词展示界面-->
@@ -20,6 +20,36 @@
     </div>
   </div>
 </template>
+
+
+<script>
+  export default {
+    data() {
+      return {
+        leftItem: ["个人", "搜索", "诗词", "审核"],
+        selectedindex: 1,
+      }
+    },
+
+    methods: {
+      // setClass: function () {
+      //   let li = $('.navbar-nav li');
+      //   let length = li.length;
+      //   // 设置每个li的index
+      //   for (let i = 0; i < length; i++) {
+      //     li[i].index = i;
+      //     li[i].classList.remove("active");
+      //   }
+      //   for (let i = 0; i < length; i++) {
+      //     li[i].onclick = function () {
+      //       this.classList.add("active");
+      //     }
+      //   }
+      //
+      // }
+    }
+  }
+</script>
 
 <style lang="scss">
   #home {
@@ -37,62 +67,46 @@
     height: 100%;
   }
   .left-container{
-    background: #f8f8f8;
-    width: 80px;
+    width: 60px;
     height: 100%;
     white-space: nowrap;
+    background-color: #2c3e50;
   }
   .left-container ul li{
-    font-size: 16px;
-    color: #333;
-    height: 30px;
-    line-height: 30px;
+    background-color: #2c3e50;
+    border-bottom: 1px solid #99a9bf;
+    border-top: 1px solid #d7eaec;
+    font-size: 20px;
+    font-weight: bold;
+    height: 60px;
+    line-height: 22px;
     text-align: center;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding: 8px;
+    white-space:normal;
+    word-break : break-all;
+    word-wrap: break-word;
+    a{
+      color: #ececec;
+    }
   }
-  .active,
-  .active a{
-    color:red;
-    background: #f0fcff;
+
+  .left-container ul .active{
+    background-color: #ebebeb;
+    a{
+      color: #404a59;
+    }
   }
 
   .center-container{
-    background: #f0fcff;
-    width: 200px;
+    background: #ffffff;
+    width: 15%;
+    min-width: 200px;
     height: 100%;
+    background:url('../assets/background1.png') no-repeat -25px -40px;
   }
   .right-container{
-    background: #fff;
+    background: #e6edf2;
     flex:1;
     height: 100%;
   }
 </style>
-<script>
-  import $ from 'jquery'
-  export default {
-    data() {
-      return {
-        leftItem: ["个人", "搜索", "诗词", "审核"],
-      }
-    },
-
-    methods: {
-      setClass: function () {
-        let li = $('.navbar-nav li');
-        let length = li.length;
-        // 设置每个li的index
-        for (let i = 0; i < length; i++) {
-          li[i].index = i;
-          li[i].classList.remove("active");
-        }
-        for (let i = 0; i < length; i++) {
-          li[i].onclick = function () {
-            this.classList.add("active");
-          }
-        }
-
-      }
-    }
-  }
-</script>
