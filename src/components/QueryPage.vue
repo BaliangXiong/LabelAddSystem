@@ -1,5 +1,5 @@
 <template>
-
+<h1>查询系统</h1>
 </template>
 
 <script>

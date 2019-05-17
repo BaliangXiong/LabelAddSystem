@@ -83,11 +83,10 @@
             this.$axios.post("register",param)
               .then(response =>{
                 if(response.data === "success"){
-                  _this.$store.commit('SAVE_USERINFO',response.data[0])
                   _this.$Message.success('恭喜你，注册成功!')
 
-                  //跳转到首页
-                  _this.$router.push('/')
+                  //跳转到登录界面
+                  _this.$router.push('/Login')
                 } else if(response.data === "exist") {
                   this.$Message.error('该用户名已存在！');
                 }
